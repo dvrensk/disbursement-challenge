@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  merchant: one
+  order_number: MyString
+  confirmed_at: 2016-03-08 18:41:10
+  shipped_at: 2016-03-08 18:41:10
+  unshipped_cart: one
+  shipped_cart: one
+
+two:
+  merchant: two
+  order_number: MyString
+  confirmed_at: 2016-03-08 18:41:10
+  shipped_at: 2016-03-08 18:41:10
+  unshipped_cart: two
+  shipped_cart: two
