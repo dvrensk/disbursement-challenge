@@ -14,4 +14,12 @@ class CartTest < ActiveSupport::TestCase
     cart.reload
     assert_equal 5.12, cart.principal_amount
   end
+
+  test "cannot change value once saved" do
+    cart = Cart.create!(principal_amount: 5.12)
+    cart.principal_amount = 7.89
+    assert cart.save
+    cart.reload
+    assert_equal 5.12, cart.principal_amount
+  end
 end
