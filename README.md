@@ -1,7 +1,10 @@
 # README
 
 This repo contains a programming challenge for people who are interested in applying
-for a backend developer job at SeQura.
+for a backend developer job at SeQura.  The challenge has been designed to be realistic,
+i.e., you will encounter some of the same problems that we have done at SeQura.  It is
+however not _real_ or _complete_, i.e. the code is not extracted from our real systems
+and the rules described below are not the real ones.
 
 ## The code
 
@@ -13,16 +16,22 @@ backend.  It contains three models:
 * `Order`: Orders are the central object in the day-to-day work at SeQura.  They represent
 	a shopper's order in an online store, and they are only present in this system if
 	SeQura approved the shopper's request for a short-term credit.
+
+	Order objects can be updated but never deleted.
 * `Cart`: A cart represents a list of items such as products, shipment fees, service fees,
-	discounts, etc.  Each order has two such lists, one representing the items that have
+	discounts, etc.  Each order has two such lists: one representing the items that have
 	been sent and one representing the items that have not yet been sent.  In its role as
 	intermediary, SeQura collects payment from the shopper for the value of _both_ carts,
 	but only pays the merchant the value of the items that have been shipped.
 
+	Carts are immutable, meaning that cart records in the database never change.  So for instance, when a shopper
+	makes a partial return, the corresponding `Order` gets a _new_ `Cart` object in its `shipped_cart`
+	slot.  This means that the same `Cart` object can be used in many places without fear of inconsistency.
+
 ## The challenge
 
 Every week on Tuesdays, SeQura will pay out money to the merchants in a process called _disbursement_.
-Your task is to make
+The operations manager is now asking you to make
 the system calculate _how much_ money should be paid to each merchant based on the following
 rules:
 
@@ -68,7 +77,7 @@ O#BBB111	-8.33 €
 
 ### Instructions
 
-1. You are not allowed to _change_ anything that is defined.  Other parts of the system rely on the models looking
+1. You are not allowed to _change_ anything that is defined.  Assume that other parts of the system rely on the models looking
 	and working like they do.
 1. You can add new models as you see fit.
 1. You can add attributes to the existing models, but try to keep your solution to your objects.
@@ -76,13 +85,19 @@ O#BBB111	-8.33 €
 1. Avoid calling things "payment" or anything close to that word.  The reason is that we use "payment"
 	when we talk about the money that they shopper gives to us, and we want to avoid confusion.
 1. You are programming money and the rules are complex.  Automatic tests are absolutely mandatory.
+1. In fact, for this challenge, tests or specs are more important than the implementation.  Think of it as two challenges
+	that could well be separate:
+	1. Transform the business requirements to tests or specs.
+	1. Implement a solution according to the specs you created.
+1. This is not a school exercise where you focus on solving the problem as stated and ignore everything else.
+	You may assume that the data in the system is always correct and consistent, but you must not assume
+	that people who use the system do so in the way intended.
+	Your solution needs to be technically sound and cover any odd cases that the operations manager might
+	not have thought of, just like in real life.  And again: spec (or at least make a note of) the odd
+	cases, even if you don't have time to implement them.
+1. Don't worry about presentation or visual design.	Readable but ugly is fine.
 
-### Notes
-
-1. Once created, cart objects do not change.  Instead when an order changes, we create a _new_ cart object
-	and change the association on the order object.
-
-## To get started
+## Getting started
 
 The code in the repo was developed with Rails 5.0.0beta3 and sqlite3.  There are
 a few tests that show how the models work, individually and together.  You should be able
@@ -95,3 +110,5 @@ bundle
 rails db:migrate
 rails test
 ```
+
+You could also fork the repo and then clone your own fork.
