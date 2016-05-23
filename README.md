@@ -36,7 +36,7 @@ the system calculate _how much_ money should be paid to each merchant based on t
 rules:
 
 1. If an order is included in the disbursement for the first time, we should pay to the merchant
-	the value of the shipped cart minus 50 cents, which is our commission.
+	the value of the shipped cart minus our commission.  (Our commission is 1 % of the order value.)
 1. If the value of the shipped cart has changed since last time the order was disbursed, the order should
 	be included in the disbursement again.  (The value of the shipped cart changes quite often, sometimes
 	because the merchant shipped the second half of an order, and sometimes because the shopper returned
