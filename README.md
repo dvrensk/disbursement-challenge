@@ -111,4 +111,10 @@ rails db:migrate
 rails test
 ```
 
-You could also fork the repo and then clone your own fork.
+Please do not fork the repo to create your solution.  We don't want a collaboration network of all the people who have taken the challenge.
+
+## Submitting your solution
+
+Once you have solved the challenge, please send an archive of your solution (`.tar.gz` or `.zip`) and include you .git folder.  That way, we can see not only your final solution but also how you arrived there.
+
+If for some reason you want to publish your solution on Github, you are free to do so, but don't do so for the purpose of submitting your solution.
