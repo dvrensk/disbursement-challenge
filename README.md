@@ -84,7 +84,8 @@ O#BBB111	-8.33 €
 1. Use meaningful names for models, methods and associations.
 1. Avoid calling things "payment" or anything close to that word.  The reason is that we use "payment"
 	when we talk about the money that they shopper gives to us, and we want to avoid confusion.
-1. You are programming money and the rules are complex.  Automatic tests are absolutely mandatory.
+1. You are programming money and the rules are complex.  Automatic tests are absolutely mandatory.  There are some basic tests
+	in `/test` already.  Extend them, or use RSpec.
 1. In fact, for this challenge, tests or specs are more important than the implementation.  Think of it as two challenges
 	that could well be separate:
 	1. Transform the business requirements to tests or specs.
@@ -115,6 +116,6 @@ Please do not fork the repo to create your solution.  We don't want a collaborat
 
 ## Submitting your solution
 
-Once you have solved the challenge, please send an archive of your solution (`.tar.gz` or `.zip`) and include you .git folder.  That way, we can see not only your final solution but also how you arrived there.
+Once you have solved the challenge, please send an archive of your solution (`.tar.gz` or `.zip`) and include your .git folder.  That way, we can see not only your final solution but also how you arrived there.
 
 If for some reason you want to publish your solution on Github, you are free to do so, but don't do so for the purpose of submitting your solution.
