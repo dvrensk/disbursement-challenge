@@ -51,7 +51,7 @@ rules:
 There will be lots of orders and lots of merchants, so running these calculations will take more time than
 can typically be allowed by a web server.  For this reason, make sure that the calculcations can be started
 independently of controllers and views, for instance by running `DisbursementBuilder.run_weekly` in the Rails
-console.
+console.  (Don't worry about how and when this will be run every week, our DevOps will take care of that.)
 
 Running this should not produce anything on stdout, but feel free to log what you are doing using
 Rails's logger.
